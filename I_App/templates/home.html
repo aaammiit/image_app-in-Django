@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  {%extends 'base.html'%}
+  {%block myblock%}
+
+
+  <div class="container ">
+
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+    {%for i in data%}
+      <div class="col">
+        <div class="card" style="border: none;">
+          
+
+          <img src="{{i.image.url}}" height="100" width="450" class="img-fluid" alt=""
+            style="aspect-ratio: 3/4;object-fit:cover;border: none;border-radius: 50%;">
+          <div class="card-body">
+            <a href="detail/{{i.id}}"> <button type="submit" class="btn btn-outline-info btn-lg">Show Details</button></a>
+
+           <a href="delete/{{i.id}}"> <button type="submit" class="btn btn-outline-danger btn-lg">Delete This Image</button></a>
+
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+
+
+
+  <script>
+    let m = document.querySelector('#mar')
+    function stop() {
+      addEventListener('click', () => {
+        m.stop()
+
+      })
+      addEventListener('dblclick', () => {
+        m.start()
+
+      })
+    }
+
+  </script>
+
+  {%endblock%}
+</body>
+
+</html>
